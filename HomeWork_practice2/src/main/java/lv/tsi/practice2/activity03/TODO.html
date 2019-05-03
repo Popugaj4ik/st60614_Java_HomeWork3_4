@@ -1,0 +1,76 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link href="../../../../../doc/style.css?colorTheme=Custom.OdoTheme" rel="stylesheet" type="text/css" media="all">
+</head>
+<body>
+<html>
+<body><p><a name="top"></a></p>
+
+<h1 id="Activity03"><span>Activity 03: Abstract classes and Interfaces</span></h1>
+
+<ol>
+    <li>Investigate <strong>lv.tsi.practice2.activity03</strong> package</li>
+    <li>Right-click on package <strong>lv.tsi.practice2.activity03</strong> and select <strong>New — Java Class</strong></li>
+    <li>Enter <em>class name:</em> <strong>Human</strong></li>
+    <li>Implement <strong>Humanoid</strong> interface in <strong>lv.tsi.practice2.activity03 package</strong></li>
+    <li>Create constructors for <em>Human</em> class:
+        <ol>
+            <li>Constructor without parameters, which sets weight of human to <strong>42</strong></li>
+            <li>Constructor with one <strong>int</strong> parameter to set initial weight for <em>Human</em></li>
+        </ol>
+    </li>
+</ol><h2 id="HCreateMartianclass"><span>Create Martian class</span></h2><p>Create <strong>Martian</strong> class, which implements <strong>Humanoid</strong>,
+    <strong>Alien</strong> and <strong>Cloneable</strong> interfaces:</p>
+<ol>
+    <li>Right-click on package <strong>lv.tsi.practice2.activity03</strong> and select <strong>New — Java Class</strong></li>
+    <li>Enter <em>class name:</em> <strong>Martian</strong></li>
+    <li>Implement interfaces:
+        <ol>
+            <li><strong>Humanoid</strong> from <strong>lv.tsi.practice2.activity03</strong> package,</li>
+            <li><strong>Alien</strong> from <strong>lv.tsi.practice2.activity03</strong> package,</li>
+            <li><strong>Cloneable</strong> from <strong>java.lang</strong> package.</li>
+        </ol>
+    </li>
+    <li>Create constructor for <em>Martian</em> class with one <strong>int</strong> parameter to set initial weight for <em>Martian</em></li>
+</ol><h2 id="HImplementmethodsofMartianandHumanclasses"><span>Implement methods of Martian and Human classes</span></h2><p>Implement methods according to the
+    required logic, which is described in interface definitions and expected results from unit tests.</p><p><img
+        src="https://odo.lv/xwiki/resources/icons/silk/error.png" class="wikimodel-freestanding" alt="error"> Notes:</p>
+<ol>
+    <li><em>Alien</em> eats <em>Humanoid</em> only if it is alive and gains its weight.</li>
+    <li>For <em>Humanoid</em> interface <strong>getBackpack()</strong> should return <strong>Object</strong>, but for <em>Human</em> class
+        <strong>getBackpack()</strong> should return just <strong>String</strong>.
+    </li>
+    <li>For <em>Humanoid</em> interface <strong>setBackpack()</strong> should accept <strong>String</strong>, but for <em>Martian</em> class
+        <strong>setBackpack()</strong> should accept <strong>Object</strong>.
+    </li>
+    <li>When implementing <strong>setBackpack()</strong> for Martian, check that Martian cannot put in backpack himself.</li>
+    <li>When <strong>getBackpack()</strong> is called for <em>Martian</em> it should return new object with the same values.</li>
+    <li>
+        <div><p>When <strong>clone()</strong> is called for <em>Martian</em>, its structure should be cloned recursively for content of all backpacks. You can do it
+            by implementing internal method <strong>clone(Object)</strong> like this:</p>
+            <div class="box">
+                <div class="code">/*<br> * Implementation of Object clone() method for Cloneable interface<br> * @see
+                    https://docs.oracle.com/javase/7/docs/api/java/lang/Cloneable.html<br> */<br>@Override<br>    public Object clone() throws
+                    CloneNotSupportedException {<br>    return clone(this);<br>}<br><br>private Object clone(Object current) {<br>    // TODO implement cloning of
+                    current object<br>    // and its backpack<br>}
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div><p>Implementation of <strong>toString()</strong> method for Human and Martian classes should be:</p>
+            <div class="box">
+                <div class="code">@Override<br>public String toString() {<br>    return &quot;ClassName: &quot; + weight + &quot; [&quot; + backpack + &quot;]&quot;;<br>}
+                </div>
+            </div>
+            <p>where <strong>ClassName</strong> is <strong>Human</strong> for human and <strong>Martian</strong> for martian.<br>Note that if current object is
+                martian and its backpack contains another martian and then human with &quot;Some string&quot; in its backpack, it should show:</p>
+            <div class="box">
+                <div class="code">[Martian: 1 [Martian: 2 [Human: 3 [Some string]]]</div>
+            </div>
+        </div>
+    </li>
+    <li>Beware of any other undocumented requirements which you will get by running unit tests. Implement all of them accordingly to pass unit tests.</li>
+</ol><p><a name="top"></a></p>
+</body></html></body></html>
